@@ -5,10 +5,8 @@
 #define ARRAY_LENGHT 100
 #define MAX_RANDOMIZE 100000
 
-/* C implementation QuickSort */
 #include<stdio.h> 
 
-// A utility function to swap two elements 
 void swap(int* a, int* b) 
 { 
 	int t = *a; 
@@ -21,8 +19,8 @@ int partition (int array[], int low, int high)
 { 
 	int pivot = array[high]; 
 	int i = (low - 1);
-
-	for (int j = low; j <= high- 1; j++) 
+   int j;
+	for (j = low; j <= high- 1; j++) 
 	{ 
 		if (array[j] < pivot) 
 		{ 
@@ -61,7 +59,7 @@ void bruteForce(int array[]){
    }
    clock_t end = clock();
    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-   printf("Technique: Brute Force\nEn Yakın Değer: %d\nSayı 1: %d\nSayı 2: %d\nÇalışma süresi: %f\n",minDiff,dif1,dif2,time_spent);
+   printf("Technique: Brute Force\nMin Diff: %d\nNumber 1: %d\nNumber 2: %d\nOperation time: %f\n",minDiff,dif1,dif2,time_spent);
 }
 
 void bruteForceSecond(int array[]){
@@ -79,7 +77,7 @@ void bruteForceSecond(int array[]){
    }
    clock_t end = clock();
    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-   printf("Technique: Brute Force (Sıralama yer değiştirdikten sonra)\nEn Yakın Değer: %d\nSayı 1: %d\nSayı 2: %d\nÇalışma süresi: %f\n",minDiff,dif1,dif2,time_spent);
+   printf("Technique: Brute Force(After applying Quick sort)\nMin Diff: %d\nNumber 1: %d\nNumber 2: %d\nOperation time: %f\n",minDiff,dif1,dif2,time_spent);
 }
 
 void withQuicksort(int array[]){
@@ -96,7 +94,7 @@ void withQuicksort(int array[]){
    }
    clock_t end = clock();
    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-   printf("Technique: Quick Sort (Optimized)\nEn Yakın Değer: %d\nSayı 1: %d\nSayı 2: %d\nÇalışma süresi: %f\n",minDiff,dif1,dif2,time_spent);
+   printf("Technique: Quick Sort (Optimized)\nMin Diff: %d\nNumber 1: %d\nNumber 2: %d\nOperation time: %f\n",minDiff,dif1,dif2,time_spent);
 }
 
 void printArray(int array[], int size) 
@@ -109,12 +107,11 @@ void printArray(int array[], int size)
 
 int main() {
    srand(time(0)); 
-   printf("Array Uzunluğu: %d\n",ARRAY_LENGHT);
+   printf("Number of Array Elements: %d\n",ARRAY_LENGHT);
    
-   // printf() displays the string inside quotation
    int array[ARRAY_LENGHT];
    int i=0;
-   // Array'i init eder. Random sayılarla
+
    for(i = 0; i < ARRAY_LENGHT; ++i) {
      array[i] = rand()%MAX_RANDOMIZE;
    }
