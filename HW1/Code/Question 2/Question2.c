@@ -17,14 +17,14 @@ void vonNeumann(int **array,int x,int y,int recursiveCount){
 }
 
 int main(void) {
-	
+
 	int N,i,j,x0,y0;
-	printf("N Değeri: ");
+	printf("N Value: ");
 	scanf("%d", &N);
 	printf("\n");
 	int totalBoyut = 2*N*(N+1)+1; 
 
-	int *array = (int *)malloc(totalBoyut * sizeof(int*));
+	int **array = (int **)malloc(totalBoyut * sizeof(int*));
 	for(i = 0; i < totalBoyut; i++) array[i] = (int *)malloc(totalBoyut * sizeof(int));
 
 
@@ -45,7 +45,7 @@ int main(void) {
 	}
 	    
 
-	printf("\nMatris bastiriliyor: \n");
+	printf("\nVon Neumann’s Neighborhood: \n");
     for (i = 0; i <  totalBoyut; i++){
 		printf("\n");
 		for (j = 0; j < totalBoyut; j++) {
